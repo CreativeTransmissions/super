@@ -18,17 +18,34 @@ function HomePage() {
     onConnect({ address, connector, isReconnected }) {
 
       fetchNFTs(address).then((nftList)=>{
-        setData({address:address,
-                  nftList:nftList});        
+        if(nftList.ownedNfts.length > 0){
+          setData({address:address,
+            nftList:nftList});   
+        } else {
+          // test code- use test wallet if no nfts
+          console.log('no nfts using test');
+           address = process.env.REACT_APP_TEST_WALLET_ADDRESS;
+
+          fetchNFTs(address).then((nftList)=>{
+            if(nftList.ownedNfts.length > 0){
+              setData({address:address,
+                nftList:nftList});   
+            } 
+         
+    
+          })
+    
+        }
+     
 
       })
 
     },
   })
 
-    const fetchNFTs = () => {
-    
-      let url = constructNFTURL()
+    const fetchNFTs = (owner) => {
+
+      let url = constructNFTURL(owner)
       return fetch(url)
         .then(response => {
           if (!response.ok) {
@@ -42,10 +59,12 @@ function HomePage() {
         });
   }
   
-  const constructNFTURL =() =>{
+  const constructNFTURL =(owner) =>{
 
     const alchemyKey = process.env.REACT_APP_ALCHEMY_KEY;
-    const owner = process.env.REACT_APP_TEST_WALLET_ADDRESS;
+
+
+  //  const owner = process.env.REACT_APP_TEST_WALLET_ADDRESS;
     return 'https://eth-mainnet.g.alchemy.com/nft/v3/'+alchemyKey+'/getNFTsForOwner?owner='+owner+'&withMetadata=true&pageSize=100'    
   }
 

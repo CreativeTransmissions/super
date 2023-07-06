@@ -5,9 +5,7 @@ import * as THREE from 'three';
 import { TextureLoader } from 'three';
 
 function ImagePlane({ index, imageUrl, position }) {
-  console.log(position);
   const texture = useLoader(TextureLoader, 'https://3desocial.com/api/image-proxy?url=' + imageUrl);
-  console.log(texture)
   const mesh = useRef();
   let center = new THREE.Vector3(0,0,0);
   useFrame(() => (mesh.current.lookAt(center)))
