@@ -3,6 +3,7 @@ import { Web3Modal } from '@web3modal/react'
 import { configureChains, createConfig, WagmiConfig } from 'wagmi'
 import { arbitrum, mainnet, polygon } from 'wagmi/chains'
 import HomePage from './components/HomePage'
+import './App.css'; 
 
 const chains = [arbitrum, mainnet, polygon]
 const projectId = process.env.REACT_APP_WALLETCONNECT_PROJECT_ID;
