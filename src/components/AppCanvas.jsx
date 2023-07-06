@@ -2,7 +2,7 @@ import React, { useState, useEffect, useMemo, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import { Canvas, useFrame } from '@react-three/fiber';
 import ImagePlane from './ImagePlane';
-import { OrbitControls, perspectiveCamera  } from '@react-three/drei';
+import { OrbitControls, perspectiveCamera, Stars  } from '@react-three/drei';
 
 
 function AppCanvas() {
@@ -52,7 +52,7 @@ function AppCanvas() {
   const angleIncrement = (2 * Math.PI) / imageUrls.length;
     return (
             <Canvas style={{ background: 'black', width: "100vw", height: "100vh"  }}>
-
+            <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade speed={1} />
             {imageUrls.map((url, index, array) => {
               const angle = index * angleIncrement;
               const position = [
