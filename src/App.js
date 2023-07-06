@@ -5,7 +5,7 @@ import { arbitrum, mainnet, polygon } from 'wagmi/chains'
 import HomePage from './components/HomePage'
 
 const chains = [arbitrum, mainnet, polygon]
-const projectId = 'aaa52b95f04dc6835908c27a5d94293f';
+const projectId = process.env.REACT_APP_WALLETCONNECT_PROJECT_ID;
 
 const { publicClient } = configureChains(chains, [w3mProvider({ projectId })])
 const wagmiConfig = createConfig({
