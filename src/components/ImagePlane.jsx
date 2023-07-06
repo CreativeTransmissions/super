@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo, useRef } from 'react';
 import { useFrame, useLoader } from '@react-three/fiber';
-import { Plane, Html, Loader } from '@react-three/drei';
+import { Plane} from '@react-three/drei';
 import * as THREE from 'three';
 import { TextureLoader } from 'three';
 

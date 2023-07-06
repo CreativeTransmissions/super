@@ -1,3 +1,8 @@
 html, body, #app, #app>div {
     height: 100%
   }
+#connect {
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 25%;
+}

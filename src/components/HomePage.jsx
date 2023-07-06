@@ -51,8 +51,8 @@ function HomePage() {
 
   const { address, isConnecting, isDisconnected } = useAccount()
  
-  if (isConnecting) return <div><h3>Metamask Connecting</h3></div>
-  if (isDisconnected) return <div><h3>Metamask Disconnected</h3>
+  if (isConnecting) return <div id="connect"><h3>Metamask Connecting...</h3></div>
+  if (isDisconnected) return <div id="connect"><h3>Conect with Metamask</h3>
     <Web3Button />
   </div>
     if(address){
