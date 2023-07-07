@@ -9,7 +9,7 @@
 /coverage
 
 # production
-/build
+
 
 # misc
 .DS_Store
@@ -53,3 +53,4 @@ _ReSharper*/
 .vs/
 #Nuget packages folder
 packages/
+.vercel
